@@ -2,7 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   output: "export",
-  basePath: "/newsletter-sign-up"
-}
+  basePath: "/newsletter-sign-up",
+  images: { unoptimized: true },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
