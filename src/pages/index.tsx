@@ -87,8 +87,8 @@ export default function Home() {
     );
   return (
     <div className="w-[375px] lg:w-[1440px] left-1/2 fixed ml-[-187.5px] lg:ml-[-720px] lg:min-h-screen lg:flex lg:bg-charcoal-grey">
-      <div className="lg:flex mx-6 lg:justify-center lg:border lg:w-max lg:mx-auto lg:rounded-[2rem] lg:h-max lg:self-center lg:bg-white">
-        <div className="py-5 min-h-screen text-dark-slate-grey lg:inline-block lg:self-center lg:mx-10 lg:max-w-[400px]">
+      <div className="lg:flex lg:justify-center lg:border lg:w-max lg:mx-auto lg:rounded-[2rem] lg:h-max lg:self-center lg:bg-white">
+        <div className="py-5 min-h-screen lg:min-h-max text-dark-slate-grey lg:inline-block lg:self-center lg:mx-10 lg:max-w-[400px]">
           <Image
             className="my-20 lg:my-6"
             src={successIcon}
