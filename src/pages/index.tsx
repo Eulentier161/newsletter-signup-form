@@ -87,17 +87,24 @@ export default function Home() {
     );
   return (
     <div className="w-[375px] lg:w-[1440px] left-1/2 fixed ml-[-187.5px] lg:ml-[-720px] lg:min-h-screen lg:flex lg:bg-charcoal-grey">
-      <div className="lg:flex lg:justify-center lg:border lg:w-max lg:mx-auto lg:rounded-[2rem] lg:h-max lg:self-center lg:bg-white">
-        <div className="py-5 text-dark-slate-grey lg:inline-block lg:self-center lg:mx-10 lg:max-w-[400px]">
-          <Image className="my-20 lg:my-6" src={successIcon} alt="successIcon" />
+      <div className="lg:flex mx-6 lg:justify-center lg:border lg:w-max lg:mx-auto lg:rounded-[2rem] lg:h-max lg:self-center lg:bg-white">
+        <div className="py-5 min-h-screen text-dark-slate-grey lg:inline-block lg:self-center lg:mx-10 lg:max-w-[400px]">
+          <Image
+            className="my-20 lg:my-6"
+            src={successIcon}
+            alt="successIcon"
+          />
           <p className="mt-10 font-bold text-xl mb-4 lg:text-[52px] leading-none">
             Thanks for subscribing!
           </p>
           <p className="my-8">
-            A confirmation email has been sent to <b>ash@loremcompany.com</b>. Please
-            open it and click the button inside to confirm your subscription.
+            A confirmation email has been sent to <b>{email}</b>. Please open it
+            and click the button inside to confirm your subscription.
           </p>
-          <button className="mt-[100%] lg:mt-auto hover:bg-gradient-to-r hover:from-[#ff5379] hover:to-[#ff693e] border rounded-lg w-full py-4 font-bold bg-dark-slate-grey text-white lg:block">
+          <button
+            onClick={() => setSubmitted(false)}
+            className="absolute justify-self-center bottom-4 lg:relative lg:mt-auto hover:bg-gradient-to-r hover:from-[#ff5379] hover:to-[#ff693e] border rounded-lg lg:w-full inline-block w-[87.5%] py-4 font-bold bg-dark-slate-grey text-white lg:block"
+          >
             Dismiss message
           </button>
         </div>
