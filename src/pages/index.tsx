@@ -2,6 +2,7 @@ import Image from "next/image";
 import listBullet from "@/../public/images/icon-list.svg";
 import mobileBg from "@/../public/images/illustration-sign-up-mobile.svg";
 import desktopBg from "@/../public/images/illustration-sign-up-desktop.svg";
+import { useState } from "react";
 
 const ListElement: React.FC<{ children: string }> = ({ children }) => {
   return (
@@ -17,12 +18,15 @@ const ListElement: React.FC<{ children: string }> = ({ children }) => {
 };
 
 export default function Home() {
+  const [email, setEmail] = useState("");
   return (
     <div className="w-[375px] lg:w-[1440px] left-1/2 fixed ml-[-187.5px] lg:ml-[-720px] lg:min-h-screen lg:flex lg:bg-charcoal-grey">
       <div className="lg:flex lg:justify-center lg:border lg:w-max lg:mx-auto lg:rounded-[2rem] lg:h-max lg:self-center lg:bg-white">
         <Image className="lg:hidden" alt="mobileBg" src={mobileBg} />
         <form className="p-5 text-dark-slate-grey lg:inline-block lg:self-center lg:mx-10 lg:max-w-[400px]">
-          <div className="font-bold text-xl mb-4 lg:text-[52px]">Stay updated!</div>
+          <div className="font-bold text-xl mb-4 lg:text-[52px]">
+            Stay updated!
+          </div>
           <div className="mb-4">
             Join 60,000+ product managers receiving monthly updates on:
           </div>
@@ -33,15 +37,30 @@ export default function Home() {
             <ListElement>Measuring to ensure updates are a success</ListElement>
             <ListElement>And much more!</ListElement>
           </ul>
-          <label className="text-sm font-bold">Email address</label>
+          <div className="flex justify-between lg:w-[24rem]">
+            <label className="text-sm font-bold">Email address</label>
+            <div
+              hidden={email === "" || !!email.match(/^\S+?\@\S+$/)}
+              className="text-sm text-tomato"
+            >
+              Valid email required
+            </div>
+          </div>
           <input
-            className="w-full mt-1 mb-6 py-4 lg:w-[24rem] px-5 rounded-lg border border-grey placeholder-grey lg:block"
+            value={email}
+            onChange={(e) => setEmail(e.currentTarget.value)}
+            className={
+              email === "" || !!email.match(/^\S+?\@\S+$/)
+                ? "w-full mt-1 mb-6 py-4 lg:w-[24rem] px-5 rounded-lg border border-grey outline-grey placeholder-grey lg:block"
+                : "w-full mt-1 mb-6 py-4 lg:w-[24rem] px-5 rounded-lg border border-tomato text-tomato outline-tomato lg:block"
+            }
             id="emailInput"
             type="email"
             placeholder="email@company.com"
           />
           <button
-            className="border rounded-lg lg:w-[24rem] w-full py-4 font-bold bg-dark-slate-grey text-white lg:block"
+            disabled={email === "" || !email.match(/^\S+?\@\S+$/)}
+            className="enabled:hover:bg-gradient-to-r enabled:hover:from-[#ff5379] enabled:hover:to-[#ff693e] border rounded-lg lg:w-[24rem] w-full py-4 font-bold bg-dark-slate-grey text-white lg:block"
             type="submit"
           >
             Subscribe to monthly newsletter
