@@ -1,6 +1,6 @@
 import Image from "next/image";
 import listBullet from "@/../public/images/icon-list.svg";
-import mobileBg from "@/../public/images/illustration-sign-up-mobile.svg"
+import mobileBg from "@/../public/images/illustration-sign-up-mobile.svg";
 
 const ListElement: React.FC<{ children: string }> = ({ children }) => {
   return (
@@ -17,11 +17,13 @@ const ListElement: React.FC<{ children: string }> = ({ children }) => {
 
 export default function Home() {
   return (
-    <>
-    <Image alt="mobileBg" src={mobileBg} />
+    <div className="w-[375px] left-1/2 fixed ml-[-187.5px]">
+      <Image alt="mobileBg" src={mobileBg} />
       <form className="p-5 text-dark-slate-grey">
         <h1 className="font-bold text-xl mb-4">Stay updated!</h1>
-        <p className="mb-4">Join 60,000+ product managers receiving monthly updates on:</p>
+        <p className="mb-4">
+          Join 60,000+ product managers receiving monthly updates on:
+        </p>
         <ul className="mb-10">
           <ListElement>Product discovery and building what matters</ListElement>
           <ListElement>Measuring to ensure updates are a success</ListElement>
@@ -41,6 +43,6 @@ export default function Home() {
           Subscribe to monthly newsletter
         </button>
       </form>
-    </>
+    </div>
   );
 }
